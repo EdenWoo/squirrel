@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, ElementRef, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {
   focusFirstError,
@@ -25,7 +25,7 @@ export class UserComponent implements OnInit {
   form: FormGroup;
   ValidationPattens = ValidationPattens; // for html
 
-  constructor(private formBuilder: FormBuilder, private userFacade: UserFacade, private el: ElementRef) {}
+  constructor(private formBuilder: FormBuilder, private userFacade: UserFacade, private el: ElementRef, private cd: ChangeDetectorRef) {}
 
   ngOnInit(): void {
     this.createForm();
@@ -55,7 +55,7 @@ export class UserComponent implements OnInit {
   save() {
     if (this.form.invalid) {
       validateAllFormFields(this.form);
-      focusFirstError(this.form, this.el);
+      focusFirstError(this.form, this.el, this.cd);
     } else {
       // submit
       this.userFacade.addUser(this.form.value);
