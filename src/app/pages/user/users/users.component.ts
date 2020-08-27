@@ -13,9 +13,11 @@ export class UsersComponent implements OnInit {
   users$ = this.userFacade.users$;
   displayedColumns = ['fullName', 'email', 'dateOfBirth', 'gender', 'address'];
   dataSource: MatTableDataSource<User>;
+  users: User[];
 
   constructor(private formBuilder: FormBuilder, private userFacade: UserFacade) {
     this.users$.subscribe((users) => {
+      this.users = users;
       this.dataSource = new MatTableDataSource(users);
     });
   }
