@@ -1,0 +1,27 @@
+@import 'variables';
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 25;
+  width: 100%;
+  padding: 21px 0;
+  font-size: 12px;
+  background: #f16421;
+  border-bottom: 1px solid #dde3e3;
+
+  .logo {
+    width: 110px;
+  }
+
+  @media (min-width: 992px) {
+    .logo {
+      width: 159px;
+    }
+  }
+
+  button {
+    color: white;
+  }
+}

@@ -1,0 +1,140 @@
+<div class="user container-fluid">
+  <div class="row page-head">
+    <div class="col-xs-12 offset-sm-1 col-sm-10 col-md-8 offset-md-2 text-center">
+      <h2>Thanks for choosing Squirrel.</h2>
+      <p>
+        First you’ll need to register for a Squirrel account, then we’ll get your investment underway.
+        <br>Let’s get started below.
+      </p>
+    </div>
+  </div>
+
+  <div class="row">
+
+  </div>
+
+  <div class="row">
+    <div class="p-12 col-xs-12 offset-sm-1 col-sm-10 offset-md-2 col-md-8">
+
+      <div class="card card-default">
+
+        <div class="card-body">
+          <h3 class="mw-80">Create your Squirrel account</h3>
+          <p class="mw-80 m-b-25">These are the details you'll use to log in. Already a member? Login now.
+          <form
+            class="form-group"
+            name="form"
+            [formGroup]="form"
+          >
+            <div class="form-group col-md-12">
+              <mat-form-field appearance="outline" class="w-100">
+                <mat-label>Full Name</mat-label>
+                <input matInput formControlName="fullName"/>
+                <mat-error *ngIf="form?.get('fullName').hasError('required')">
+                  Full Name is required
+                </mat-error>
+              </mat-form-field>
+            </div>
+
+            <div class="form-group col-md-12">
+              <mat-form-field appearance="outline" class="w-100">
+                <mat-label>Email</mat-label>
+                <input matInput formControlName="email" type="email"/>
+                <mat-error *ngIf="form?.get('email').hasError('required')">
+                  Email is required
+                </mat-error>
+              </mat-form-field>
+            </div>
+            <div class="form-group col-md-12">
+              <mat-form-field appearance="outline" class="w-100">
+                <mat-label>Password</mat-label>
+                <input matInput type="password" formControlName="password"/>
+                <mat-icon class="invalid-icon" *ngIf="form?.get('password').invalid" matSuffix>clear</mat-icon>
+                <mat-icon class="valid-icon" *ngIf="form?.get('password').valid" matSuffix>done</mat-icon>
+                <mat-error *ngIf="form?.get('password').hasError('required')">
+                  Password is required
+                </mat-error>
+                <mat-error *ngIf="form?.get('password').hasError(ValidationPattens.hasNumber.name)">
+                  {{ ValidationPattens.hasNumber.errorMsg }}
+                </mat-error>
+                <mat-error *ngIf="form?.get('password').hasError(ValidationPattens.hasSymbol.name)">
+                  {{ ValidationPattens.hasSymbol.errorMsg }}
+                </mat-error>
+                <mat-error *ngIf="form?.get('password').hasError(ValidationPattens.hasUpperCase.name)">
+                  {{ ValidationPattens.hasUpperCase.errorMsg }}
+                </mat-error>
+                <mat-error *ngIf="form?.get('password').hasError('minlength')">
+                  At least 7 characters in total
+                </mat-error>
+              </mat-form-field>
+            </div>
+            <div class="form-group col-md-12">
+              <mat-form-field appearance="outline" class="w-100">
+                <mat-label>Confirm Password</mat-label>
+                <input matInput type="password" formControlName="confirmPassword"/>
+                <mat-icon class="invalid-icon" *ngIf="form?.get('confirmPassword').invalid" matSuffix>clear</mat-icon>
+                <mat-icon class="valid-icon" *ngIf="form?.get('confirmPassword').valid" matSuffix>done</mat-icon>
+                <mat-error *ngIf="form?.get('confirmPassword').hasError('required')">
+                  Confirm Password is required
+                </mat-error>
+                <mat-error *ngIf="form?.get('confirmPassword').hasError('passwordMatchError')">
+                  The passwords do not match
+                </mat-error>
+              </mat-form-field>
+            </div>
+            <div class="form-group col-md-12">
+              <mat-form-field appearance="outline" class="w-100">
+                <mat-label>Date Of Birthday</mat-label>
+                <input matInput [textMask]="dateOfBirthMask" formControlName="dateOfBirth"/>
+                <mat-error *ngIf="form?.get('dateOfBirth').hasError('required')">
+                  Date Of Birthday is required
+                </mat-error>
+                <mat-error *ngIf="form?.get('dateOfBirth').hasError('tooYoung')">
+                  You must be over 18 years of age
+                </mat-error>
+                <mat-error *ngIf="form?.get('dateOfBirth').hasError('dateInvalid')">
+                  The field must be in the format dd/mm/yyyy
+                </mat-error>
+              </mat-form-field>
+            </div>
+            <div class="form-group col-md-12">
+              <mat-radio-group formControlName="gender" class="gender" color="primary">
+                <mat-radio-button value="male">Male</mat-radio-button>
+                <mat-radio-button value="female">Female</mat-radio-button>
+                <mat-error *ngIf="form?.get('gender').hasError('required') && form?.get('gender').touched">
+                  Gender is required
+                </mat-error>
+              </mat-radio-group>
+            </div>
+            <div class="form-group col-md-12">
+              <mat-form-field appearance="outline" class="w-100">
+                <mat-label>Address</mat-label>
+                <input matInput formControlName="address"/>
+                <mat-error *ngIf="form?.get('address').hasError('required')">
+                  Address is required
+                </mat-error>
+              </mat-form-field>
+            </div>
+
+            <div class="row action-buttons">
+              <div class="offset-sm-12 col-md-6 px-5">
+                <button class="w-100" mat-raised-button aria-label="cancel">
+                  Agree
+                </button>
+              </div>
+              <div class="offset-sm-12 col-md-6 px-5">
+                <button class="w-100" (click)="save()" mat-raised-button aria-label="submit">
+                  <span>Submit</span>
+                </button>
+              </div>
+            </div>
+
+          </form>
+
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</div>

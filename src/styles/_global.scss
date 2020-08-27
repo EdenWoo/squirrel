@@ -1,0 +1,20 @@
+.invalid-icon {
+  color: red;
+}
+
+.valid-icon {
+  color: green;
+}
+
+
+mat-radio-group{
+  margin: 4px 0;
+
+  mat-radio-button {
+    margin: 8px;
+  }
+
+  mat-error {
+    font-size: 75%;
+  }
+}

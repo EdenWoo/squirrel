@@ -1,0 +1,25 @@
+@import "variables";
+
+.user {
+  padding-top: 180px;
+
+  .page-head {
+    margin-bottom: 40px;
+  }
+}
+
+@media (min-width: 768px) {
+  .user {
+    padding-top: 135px;
+  }
+}
+
+
+.action-buttons {
+  button {
+    height: 50px;
+    min-width: 170px;
+    background: $color-primary;
+    color: white;
+  }
+}
