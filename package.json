@@ -9,7 +9,8 @@
     "test:watch": "jest --watch",
     "test:cc": "jest --coverage",
     "lint": "ng lint",
-    "format:check": "prettier --config ./.prettierrc --list-different \"src/{app,environments,assets}/**/*{.ts,.js,.json,.css,.scss}\""
+    "format:check": "prettier --config ./.prettierrc --list-different \"src/{app,environments,assets}/**/*{.ts,.js,.json,.css,.scss}\"",
+    "cypress": "cypress open"
   },
   "private": true,
   "dependencies": {
@@ -53,12 +54,15 @@
     "@angular-devkit/build-angular": "~0.901.8",
     "@angular/cli": "~9.1.8",
     "@angular/compiler-cli": "~9.1.11",
+    "@cypress/webpack-preprocessor": "^5.4.5",
+    "@types/cypress": "^1.1.3",
     "@types/jasmine": "~3.5.0",
     "@types/jasminewd2": "~2.0.3",
     "@types/jest": "^26.0.10",
     "@types/node": "^12.11.1",
     "angular-cli-ghpages": "^0.6.2",
     "codelyzer": "^5.1.2",
+    "cypress": "^5.0.0",
     "jasmine-core": "~3.5.0",
     "jasmine-spec-reporter": "~4.2.1",
     "jest": "^26.4.2",
@@ -71,6 +75,7 @@
     "prettier": "2.0.4",
     "pretty-quick": "^1.11.1",
     "protractor": "~7.0.0",
+    "ts-loader": "^8.0.3",
     "ts-node": "~8.3.0",
     "tslint": "~6.1.0",
     "typescript": "~3.8.3"
