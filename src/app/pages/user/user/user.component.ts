@@ -9,8 +9,6 @@ import {
 } from '@sq/app/shared/utils/utils';
 import { TextMaskConfig } from 'angular2-text-mask';
 import { UserFacade } from '@sq/libs/stores/user/user.facade';
-import { Store } from '@ngrx/store';
-import * as fromUser from '@sq/libs/stores/user/user.reducer';
 
 @Component({
   selector: 'sq-user',
@@ -26,7 +24,7 @@ export class UserComponent implements OnInit {
   form: FormGroup;
   ValidationPattens = ValidationPattens; // for html
 
-  constructor(private formBuilder: FormBuilder, private userFacade: UserFacade, private store: Store<fromUser.UserState>) {}
+  constructor(private formBuilder: FormBuilder, private userFacade: UserFacade) {}
 
   ngOnInit(): void {
     this.createForm();
