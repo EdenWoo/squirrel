@@ -16,7 +16,14 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 Run `npx jest` to execute the unit tests via Jest.
 
-# Answers to the qestions
+## More commands:
+
+Run lint: ng lint
+
+Run prettier: npm run format:check
+
+
+# Answers to the questions
 
 What parts of the project you made you consider finished
 --> All.

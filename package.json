@@ -9,7 +9,7 @@
     "test:watch": "jest --watch",
     "test:cc": "jest --coverage",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "format:check": "prettier --config ./.prettierrc --list-different \"src/{app,environments,assets}/**/*{.ts,.js,.json,.css,.scss}\""
   },
   "private": true,
   "dependencies": {
