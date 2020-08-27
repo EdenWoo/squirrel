@@ -25,7 +25,7 @@ What parts of the project you made you consider finished
 --> All.
 
 Parts that you did not have time to apply a proper style for example, or not considered done
---> Theming for the app is not perfectly done. Syles is not well organised enough.
+--> Theming for the app is not perfectly done. Styles is not well organised enough.
 
 Describe the difficulties you faced during the exercise
 --> Validation is not easy especially datetime validation.
