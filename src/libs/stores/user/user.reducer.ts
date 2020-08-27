@@ -27,7 +27,7 @@ export const selectUserFeature = createFeatureSelector<UserState>(userFeatureNam
 
 export const { selectIds, selectAll, selectEntities, selectTotal } = adapter.getSelectors(selectUserFeature);
 
-export const selectHasLoaded = createSelector(selectUserFeature, (state) => state.processing);
+export const selectProcessing = createSelector(selectUserFeature, (state) => state.processing);
 
 export function userReducer(state: UserState | undefined, action: Action): UserState {
   return reducer(state, action);
