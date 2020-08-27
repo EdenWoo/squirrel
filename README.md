@@ -16,6 +16,10 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 Run `ng test` to execute the unit tests via Jest.
 
+## Running e2e tests
+
+Run `npm run cypress` to execute the e2e tests via Cypress.
+
 ## More commands:
 
 Run lint: ng lint
