@@ -25,4 +25,4 @@ Parts that you did not have time to apply a proper style for example, or not con
 --> Theming for the app is not perfectly done. Syles is not well organised enough.
 
 Describe the difficulties you faced during the exercise
---> Validation is not easy especially datetime validate.
+--> Validation is not easy especially datetime validation.
