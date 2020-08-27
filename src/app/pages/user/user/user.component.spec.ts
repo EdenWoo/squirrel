@@ -19,6 +19,7 @@ import { UserEffects } from '@sq/libs/stores/user/user.effects';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DummyUser } from '@sq/app/pages/user/user/dummy-user';
 import { ValidationPattens } from '@sq/app/shared/utils/utils';
+import { RouterModule } from '@angular/router';
 
 describe('UserComponent', () => {
   let component: UserComponent;
@@ -52,6 +53,7 @@ describe('UserComponent', () => {
         UserStoreModule,
         MatPaginatorModule,
         BrowserAnimationsModule,
+        RouterModule,
       ],
     }).compileComponents();
   }));
