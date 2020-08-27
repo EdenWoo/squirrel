@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {
+  focusFirstError,
   matchPasswordValidator,
   patternValidator,
   validateAge,
@@ -24,7 +25,7 @@ export class UserComponent implements OnInit {
   form: FormGroup;
   ValidationPattens = ValidationPattens; // for html
 
-  constructor(private formBuilder: FormBuilder, private userFacade: UserFacade) {}
+  constructor(private formBuilder: FormBuilder, private userFacade: UserFacade, private el: ElementRef) {}
 
   ngOnInit(): void {
     this.createForm();
@@ -54,6 +55,7 @@ export class UserComponent implements OnInit {
   save() {
     if (this.form.invalid) {
       validateAllFormFields(this.form);
+      focusFirstError(this.form, this.el);
     } else {
       // submit
       this.userFacade.addUser(this.form.value);

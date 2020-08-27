@@ -1,6 +1,7 @@
 import { AbstractControl, FormArray, FormControl, FormGroup, ValidationErrors, ValidatorFn } from '@angular/forms';
 // @ts-ignore
 import moment from 'moment';
+import { ElementRef } from '@angular/core';
 
 export const ValidationPattens = {
   hasNumber: { regex: /\d/, name: 'hasNumber', errorMsg: 'At least one number' },
@@ -116,4 +117,16 @@ export function validateAllFormFields(formGroup: FormGroup | any) {
       });
     }
   });
+}
+
+export function focusFirstError(form: FormGroup, el: ElementRef) {
+  if (form && form.controls) {
+    for (const key of Object.keys(form.controls)) {
+      if (form.controls[key].invalid) {
+        const invalidControl = el.nativeElement.querySelector('[formcontrolname="' + key + '"]');
+        invalidControl.focus();
+        return;
+      }
+    }
+  }
 }
