@@ -11,7 +11,6 @@ import { TextMaskConfig } from 'angular2-text-mask';
 import { UserFacade } from '@sq/libs/stores/user/user.facade';
 import { Store } from '@ngrx/store';
 import * as fromUser from '@sq/libs/stores/user/user.reducer';
-import { DummyUser } from '@sq/app/pages/user/user/dummy-user';
 
 @Component({
   selector: 'sq-user',
@@ -31,7 +30,6 @@ export class UserComponent implements OnInit {
 
   ngOnInit(): void {
     this.createForm();
-    this.form.patchValue(DummyUser);
   }
 
   createForm() {
