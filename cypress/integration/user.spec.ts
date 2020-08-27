@@ -2,6 +2,9 @@ import { DummyUser } from '../fixtures/dummy-user';
 import { ValidationPattens } from '@sq/app/shared/utils/utils';
 import { User } from '@sq/libs/stores/interfaces/user';
 
+export const TestUrl = 'localhost:4200/';
+export const ProdUrl = 'https://edenwoo.github.io/squirrel-app/';
+
 export function fillForm(user: User) {
   cy.get('[data-testid=fullName]').clear().type(user.fullName);
   cy.get('[data-testid=email]').clear().type(user.email);
@@ -13,8 +16,9 @@ export function fillForm(user: User) {
 }
 
 describe('User Page', () => {
+  const url = ProdUrl;
   before(() => {
-    cy.visit('localhost:4200');
+    cy.visit(url);
   });
   it('check the title', () => {
     cy.get('title').invoke('text').should('equal', 'Squirrel');
@@ -33,7 +37,7 @@ describe('User Page', () => {
   });
 
   it('should show error when password have no symbol', () => {
-    cy.visit('localhost:4200');
+    cy.visit(url);
     fillForm({ ...DummyUser, password: '1234adsfdAS', confirmPassword: '1234adsfdAS' });
 
     cy.get('#submit').click();
@@ -42,7 +46,7 @@ describe('User Page', () => {
   });
 
   it('should show error message when password not have uppercase letter', () => {
-    cy.visit('localhost:4200');
+    cy.visit(url);
     fillForm({ ...DummyUser, password: '123123!asd', confirmPassword: '123123!asd' });
 
     cy.get('#submit').click();
@@ -51,7 +55,7 @@ describe('User Page', () => {
   });
 
   it('should show error message when confirm password is not match', () => {
-    cy.visit('localhost:4200');
+    cy.visit(url);
     fillForm({ ...DummyUser, password: '123123!asd123123', confirmPassword: '123123!asd' });
 
     cy.get('#submit').click();
@@ -60,7 +64,7 @@ describe('User Page', () => {
   });
 
   it('should show an error message when the user is younger than 18y', () => {
-    cy.visit('localhost:4200');
+    cy.visit(url);
     fillForm({ ...DummyUser, dateOfBirth: '01/01/2018' });
 
     cy.get('#submit').click();
@@ -69,7 +73,7 @@ describe('User Page', () => {
   });
 
   it('should show an error message when the month is lager than 12', () => {
-    cy.visit('localhost:4200');
+    cy.visit(url);
     fillForm({ ...DummyUser, dateOfBirth: '01/14/2018' });
 
     cy.get('#submit').click();
@@ -78,7 +82,7 @@ describe('User Page', () => {
   });
 
   it('should show an error message when the date is lager than 31', () => {
-    cy.visit('localhost:4200');
+    cy.visit(url);
     fillForm({ ...DummyUser, dateOfBirth: '39/14/2000' });
 
     cy.get('#submit').click();
@@ -87,7 +91,7 @@ describe('User Page', () => {
   });
 
   it('should show an error message when date is in the future', () => {
-    cy.visit('localhost:4200');
+    cy.visit(url);
     fillForm({ ...DummyUser, dateOfBirth: '01/14/2028' });
 
     cy.get('#submit').click();
