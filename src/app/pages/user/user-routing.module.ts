@@ -7,6 +7,7 @@ const routes: Routes = [
   {
     path: '',
     redirectTo: 'add',
+    pathMatch: 'full',
   },
   {
     path: 'add',

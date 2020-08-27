@@ -20,6 +20,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DummyUser } from '@sq/app/pages/user/user/dummy-user';
 import { ValidationPattens } from '@sq/app/shared/utils/utils';
 import { RouterModule } from '@angular/router';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('UserComponent', () => {
   let component: UserComponent;
@@ -54,6 +55,7 @@ describe('UserComponent', () => {
         MatPaginatorModule,
         BrowserAnimationsModule,
         RouterModule,
+        RouterTestingModule.withRoutes([]),
       ],
     }).compileComponents();
   }));

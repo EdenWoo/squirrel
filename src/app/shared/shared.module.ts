@@ -81,6 +81,7 @@ const components = [FooterComponent, HeaderComponent, AgePipe];
     FormsModule,
     ReactiveFormsModule,
     FlexLayoutModule,
+    RouterModule,
     ...components,
   ],
   providers: [],
